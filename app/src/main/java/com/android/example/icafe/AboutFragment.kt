@@ -20,6 +20,7 @@ class AboutFragment : Fragment() {
     ): View? {
 
         val binding = DataBindingUtil.inflate<FragmentAboutBinding>(inflater,R.layout.fragment_about, container, false)
+
         return binding.root
     }
 

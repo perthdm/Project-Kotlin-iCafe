@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.android.example.icafe.databinding.FragmentDetailBinding
 
 /**
@@ -19,6 +20,9 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        val binding = DataBindingUtil.inflate<FragmentDetailBinding>(inflater,R.layout.fragment_detail, container, false)
+        binding.manageSubmitButton.setOnClickListener{thisView ->
+            thisView.findNavController().navigate(R.id.action_detailFragment_to_manageFragment)
+        }
         return binding.root
     }
 

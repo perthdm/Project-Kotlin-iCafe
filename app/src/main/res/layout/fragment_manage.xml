@@ -1,13 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ManageFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F39C12">
 
+        <Button
+            android:id="@+id/manage_9Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="80dp"
+            android:text="9"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_8Button"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/manage_7Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:text="7"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_8Button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/manage_8Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="25dp"
+            android:text="8"
+            app:layout_constraintEnd_toStartOf="@+id/manage_9Button"
+            app:layout_constraintStart_toEndOf="@+id/manage_7Button"
+            app:layout_constraintTop_toBottomOf="@+id/manage_5Button" />
+
+        <Button
+            android:id="@+id/manage_6Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="80dp"
+            android:text="6"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/manage_2Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="70dp"
+            android:text="2"
+            app:layout_constraintEnd_toStartOf="@+id/manage_3Button"
+            app:layout_constraintStart_toEndOf="@+id/manage_1Button"
+            app:layout_constraintTop_toBottomOf="@+id/about_aboutText3" />
+
+        <Button
+            android:id="@+id/manage_3Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="80dp"
+            android:text="3"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_2Button"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/about_aboutText3"
+            style="@style/login_loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/manage_manageText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/manage_1Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:text="1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_2Button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/manage_4Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:text="4"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/manage_5Button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="25dp"
+            android:text="5"
+            app:layout_constraintEnd_toStartOf="@+id/manage_6Button"
+            app:layout_constraintStart_toEndOf="@+id/manage_4Button"
+            app:layout_constraintTop_toBottomOf="@+id/manage_2Button" />
+
+        <Button
+            android:id="@+id/manage_selectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/manage_selectText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/manage_9Button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

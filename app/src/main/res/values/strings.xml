@@ -2,5 +2,42 @@
     <string name="app_name">iCafe</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_usernameHint">username</string>
+    <string name="login_passwordHint">password</string>
+    <string name="login_loginText">Login</string>
+    <string name="login_iCafeText">iCafe</string>
+
+    <!--Menu -->
+    <string name="menu_menuText">Menu</string>
+    <string name="menu_manageText">Manager</string>
+    <string name="menu_historyText">History</string>
+    <string name="menu_aboutText">About</string>
+
+
+    <!--About -->
+    <string name="about_aboutText">About</string>
+    <string name="about_detailText">Mr.Eakkasit Praprutkittorn</string>
+
+    <!--History -->
+    <string name="history_historyText">History</string>
+    <string name="history_nameText">Name</string>
+    <string name="history_timeText">Time</string>
+    <string name="history_costText">Cost</string>
+
+    <!--Manager -->
+    <string name="manage_manageText">Manager</string>
+    <string name="manage_nameText">ชื่อ</string>
+    <string name="manage_ageText">อายุ</string>
+    <string name="manage_timeText">เวลา</string>
+    <string name="manage_selectText">Select</string>
+    <string name="manage_emptyText">ว่าง</string>
+    <string name="manage_selectingText">กำลังเลือก</string>
+    <string name="manage_busyText">ไม่ว่าง</string>
+
+    <!--Manager -->
+    <string name="detail_detailText">Detail</string>
+    <string name="detail_nameHint">Name</string>
+    <string name="detail_ageHint">Age</string>
+    <string name="detail_submitText">Submit</string>
+
 </resources>

@@ -7,7 +7,71 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F39C12">
+
+        <EditText
+            android:id="@+id/usernameInput"
+            style="@style/login_loginInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="@string/login_usernameHint"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/passwordInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/passwordInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/passwordInput"
+            style="@style/login_loginInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="@string/login_passwordHint"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/loginButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
+
+        <Button
+            android:id="@+id/loginButton"
+            style="@style/login_loginButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="200dp"
+            android:fontFamily="roboto"
+            android:text="@string/login_loginText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/login_loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="@string/login_iCafeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
