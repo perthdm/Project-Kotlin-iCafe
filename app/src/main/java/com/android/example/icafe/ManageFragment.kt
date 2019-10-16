@@ -46,8 +46,8 @@ class ManageFragment : Fragment() {
     }
 
    fun changeColor(selectButton:Button , arrayButton: Array<Button>){
-       arrayButton.forEach { it.setBackgroundColor(Color.parseColor("#32CD32")) }
-       selectButton.setBackgroundColor(Color.parseColor("#D0D3D4"))
+       arrayButton.forEach { it.setBackgroundColor(Color.parseColor("#FFFFFF")) }
+       selectButton.setBackgroundColor(Color.parseColor("#EBFF24"))
    }
 
 
