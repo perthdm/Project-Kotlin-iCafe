@@ -22,11 +22,11 @@ class LoginFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater, R.layout.fragment_login, container, false)
 
             binding.loginButton.setOnClickListener{thisView ->
-                if(usernameInput.text.toString() == "admin" && passwordInput.text.toString() == "12345"){
+//                if(usernameInput.text.toString() == "admin" && passwordInput.text.toString() == "12345"){
                     thisView.findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
-                }else{
-                    Toast.makeText(activity,"Username: admin , Password: 12345", Toast.LENGTH_LONG).show()
-                }
+//                }else{
+
+//                }
             }
 
 

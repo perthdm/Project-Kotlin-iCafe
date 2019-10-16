@@ -1,6 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,6 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!-- Login -->
     <style name="login_loginButton">
         <item name="android:background">#fff</item>
         <item name="android:textStyle">bold</item>
@@ -26,23 +27,66 @@
         <item name="android:textSize">55sp</item>
         <item name="android:textColor">#fff</item>
     </style>
+    <!-- Login -->
 
 
-
+    <!-- Menu -->
     <style name="menu_threeButton">
         <item name="android:background">#fff</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#E67E22</item>
     </style>
+    <!-- Menu -->
 
 
-
-    <style name="about_detailText">
+    <!-- Manage -->
+    <style name="manage_nineButton">
+        <item name="android:background">#32CD32</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">#fff</item>
     </style>
 
+    <style name="manage_submitButton">
+        <item name="android:background">#fff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#E67E22</item>
+    </style>
+
+    <style name="manage_normalText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="manage_smallText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="manage_redButton">
+        <item name="android:background">#CB4335</item>
+    </style>
+
+    <style name="manage_greenButton">
+        <item name="android:background">#32CD32</item>
+    </style>
+
+    <style name="manage_yellowButton">
+        <item name="android:background">#D0D3D4</item>
+    </style>
+    <!-- Manage -->
+
+
+    <!-- About -->
+    <style name="about_detailText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+    <!-- About -->
 
 </resources>
 

@@ -10,8 +10,88 @@
         android:layout_height="match_parent"
         android:background="#F39C12">
 
+        <TextView
+            android:id="@+id/manage_selectingText"
+            style="@style/manage_smallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/manage_selectingText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/manage_yellowBox"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/manage_busyText"
+            style="@style/manage_smallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="70dp"
+            android:text="@string/manage_busyText"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_selectingText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/manage_redBox" />
+
+        <TextView
+            android:id="@+id/manage_greenBox"
+            style="@style/manage_greenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginBottom="30dp"
+            android:width="@dimen/manage_etc10dp"
+            android:height="@dimen/manage_etc10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="200dp"
+            android:text="@string/manage_costText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="100dp"
+            android:text="@string/manage_ageText"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="100dp"
+            android:text="@string/manage_timeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
         <Button
             android:id="@+id/manage_9Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginEnd="80dp"
@@ -21,6 +101,7 @@
 
         <Button
             android:id="@+id/manage_7Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginStart="80dp"
@@ -30,6 +111,7 @@
 
         <Button
             android:id="@+id/manage_8Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginTop="25dp"
@@ -45,13 +127,15 @@
             android:layout_marginEnd="80dp"
             android:text="6"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/manage_nineButton" />
 
         <Button
             android:id="@+id/manage_2Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="50dp"
             android:text="2"
             app:layout_constraintEnd_toStartOf="@+id/manage_3Button"
             app:layout_constraintStart_toEndOf="@+id/manage_1Button"
@@ -59,6 +143,7 @@
 
         <Button
             android:id="@+id/manage_3Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginEnd="80dp"
@@ -79,6 +164,7 @@
 
         <Button
             android:id="@+id/manage_1Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginStart="80dp"
@@ -88,6 +174,7 @@
 
         <Button
             android:id="@+id/manage_4Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginStart="80dp"
@@ -97,6 +184,7 @@
 
         <Button
             android:id="@+id/manage_5Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginTop="25dp"
@@ -107,6 +195,7 @@
 
         <Button
             android:id="@+id/manage_selectButton"
+            style="@style/manage_submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -117,6 +206,52 @@
             app:layout_constraintHorizontal_bias="0.84"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manage_9Button" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/manage_nameText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/manage_7Button" />
+
+        <TextView
+            android:id="@+id/manage_yellowBox"
+            style="@style/manage_yellowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="30dp"
+            android:width="@dimen/manage_etc10dp"
+            android:height="@dimen/manage_etc10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/manage_emptyText" />
+
+        <TextView
+            android:id="@+id/manage_redBox"
+            style="@style/manage_redButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="30dp"
+            android:width="@dimen/manage_etc10dp"
+            android:height="@dimen/manage_etc10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/manage_selectingText" />
+
+        <TextView
+            android:id="@+id/manage_emptyText"
+            style="@style/manage_smallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/manage_emptyText"
+            app:layout_constraintBaseline_toBaselineOf="@+id/manage_selectingText"
+            app:layout_constraintStart_toEndOf="@+id/manage_greenBox" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
