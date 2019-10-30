@@ -16,7 +16,8 @@
 
     <!--About -->
     <string name="about_aboutText">About</string>
-    <string name="about_detailText">iCafe ราคา 10บาท : 1วินาที</string>
+    <string name="about_fullnamelText">ชื่อ: นายเอกฆสิษฐ์ ประพฤติกิจธร</string>
+    <string name="about_studentIDText">รหัสนิสิต: 59160148</string>
 
     <!--History -->
     <string name="history_historyText">History</string>
