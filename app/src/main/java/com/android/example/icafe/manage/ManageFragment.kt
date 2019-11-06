@@ -1,17 +1,15 @@
-package com.android.example.icafe
+package com.android.example.icafe.manage
 
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.android.example.icafe.R
 import com.android.example.icafe.databinding.FragmentManageBinding
 
 /**
@@ -23,14 +21,17 @@ class ManageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentManageBinding>(inflater,R.layout.fragment_manage, container, false)
+        val binding = DataBindingUtil.inflate<FragmentManageBinding>(inflater,
+            R.layout.fragment_manage, container, false)
         var arr = arrayOf<Button>()
 
         binding.apply {
             arr = arrayOf(manage1Button, manage2Button, manage3Button, manage4Button,
                           manage5Button, manage6Button, manage7Button, manage8Button, manage9Button)
 
-            manageSelectButton.setOnClickListener{thisView -> thisView.findNavController().navigate(R.id.action_manageFragment_to_detailFragment) }
+            manageSelectButton.setOnClickListener{thisView -> thisView.findNavController().navigate(
+                R.id.action_manageFragment_to_detailFragment
+            ) }
             manage1Button.setOnClickListener{ thisView -> changeColor(binding.manage1Button, arr) }
             manage2Button.setOnClickListener{ thisView -> changeColor(binding.manage2Button, arr) }
             manage3Button.setOnClickListener{ thisView -> changeColor(binding.manage3Button, arr) }
@@ -41,6 +42,7 @@ class ManageFragment : Fragment() {
             manage8Button.setOnClickListener{ thisView -> changeColor(binding.manage8Button, arr) }
             manage9Button.setOnClickListener{ thisView -> changeColor(binding.manage9Button, arr) }
         }
+
 
         return binding.root
     }

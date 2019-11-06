@@ -1,4 +1,4 @@
-package com.android.example.icafe
+package com.android.example.icafe.about
 
 
 import android.os.Bundle
@@ -7,18 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.android.example.icafe.databinding.FragmentHistoryBinding
+import com.android.example.icafe.R
+import com.android.example.icafe.databinding.FragmentAboutBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-class HistoryFragment : Fragment() {
+class AboutFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       val binding = DataBindingUtil.inflate<FragmentHistoryBinding>(inflater,R.layout.fragment_history, container, false)
+
+        val binding = DataBindingUtil.inflate<FragmentAboutBinding>(inflater,
+            R.layout.fragment_about, container, false)
+
         return binding.root
     }
 

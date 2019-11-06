@@ -8,30 +8,30 @@
     <string name="login_iCafeText">iCafe</string>
 
     <!--Menu -->
-    <string name="menu_menuText">Menu</string>
-    <string name="menu_manageText">Manager</string>
-    <string name="menu_historyText">History</string>
-    <string name="menu_aboutText">About</string>
+    <string name="menu_menuText">MENU</string>
+    <string name="menu_manageText">MANAGER</string>
+    <string name="menu_historyText">HISTORY</string>
+    <string name="menu_aboutText">ABOUT</string>
 
 
     <!--About -->
-    <string name="about_aboutText">About</string>
+    <string name="about_aboutText">ABOUT</string>
     <string name="about_fullnamelText">ชื่อ: นายเอกฆสิษฐ์ ประพฤติกิจธร</string>
     <string name="about_studentIDText">รหัสนิสิต: 59160148</string>
 
     <!--History -->
-    <string name="history_historyText">History</string>
-    <string name="history_nameText">Name</string>
-    <string name="history_timeText">Time</string>
-    <string name="history_costText">Cost</string>
+    <string name="history_historyText">HISTORY</string>
+    <string name="history_nameText">NAME</string>
+    <string name="history_timeText">TIME</string>
+    <string name="history_costText">COST</string>
 
     <!--Manager -->
-    <string name="manage_manageText">Manager</string>
+    <string name="manage_manageText">MANAGER</string>
     <string name="manage_nameText">ชื่อ : Perth</string>
     <string name="manage_ageText">อายุ : 22 ปี</string>
     <string name="manage_timeText">เวลา : 23 วินาที</string>
     <string name="manage_costText">ราคา : 200 บาท</string>
-    <string name="manage_selectText">Select</string>
+    <string name="manage_selectText">SELECT</string>
 
     <string name="manage_emptyText">ว่าง</string>
     <string name="manage_selectingText">กำลังเลือก</string>
@@ -49,9 +49,10 @@
     <!--Manager -->
 
 
-    <string name="detail_detailText">Detail</string>
-    <string name="detail_nameHint">Name</string>
-    <string name="detail_ageHint">Age</string>
-    <string name="detail_submitText">Submit</string>
+    <string name="detail_detailText">DETAIL</string>
+    <string name="detail_nameHint">NAME</string>
+    <string name="detail_timeHint">TIME</string>
+    <string name="detail_ageHint">AGE</string>
+    <string name="detail_submitText">SUBMIT</string>
 
 </resources>

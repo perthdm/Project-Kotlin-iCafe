@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".DetailFragment">
+    tools:context=".detail.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,22 +11,21 @@
         android:background="#F39C12">
 
         <EditText
-            android:id="@+id/detail_manageInput2"
+            android:id="@+id/detail_ageInput"
             style="@style/login_loginInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="40dp"
             android:layout_marginEnd="100dp"
             android:ems="10"
             android:hint="@string/detail_ageHint"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/manage_submitButton"
+            app:layout_constraintBottom_toTopOf="@+id/detail_timeInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/passwordInput"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_manageInput" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_nameInput" />
 
         <TextView
             android:id="@+id/manage_detailText"
@@ -40,17 +39,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/detail_manageInput"
+            android:id="@+id/detail_nameInput"
             style="@style/login_loginInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="100dp"
             android:ems="10"
             android:hint="@string/detail_nameHint"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/detail_manageInput2"
+            app:layout_constraintBottom_toTopOf="@+id/detail_ageInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/passwordInput"
@@ -63,16 +62,32 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="80dp"
             android:layout_marginEnd="120dp"
-            android:layout_marginBottom="200dp"
+            android:layout_marginBottom="150dp"
             android:fontFamily="roboto"
             android:text="@string/detail_submitText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_manageInput2" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_timeInput" />
+
+        <EditText
+            android:id="@+id/detail_timeInput"
+            style="@style/login_loginInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:ems="10"
+            android:hint="@string/detail_timeHint"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/manage_submitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_ageInput" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
