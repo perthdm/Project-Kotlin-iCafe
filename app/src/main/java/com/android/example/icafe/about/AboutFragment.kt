@@ -1,12 +1,13 @@
 package com.android.example.icafe.about
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.android.example.icafe.R
 import com.android.example.icafe.databinding.FragmentAboutBinding
 
@@ -23,8 +24,26 @@ class AboutFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentAboutBinding>(inflater,
             R.layout.fragment_about, container, false)
 
+        setHasOptionsMenu(true)
         return binding.root
     }
 
 
+    // Right Menu for share //
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.option_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController()) || super.onOptionsItemSelected(item)
+    }
+    // Right Menu for share //
+
+    private fun getShareIntent() : Intent {
+        val args = AboutFragment.fromBundle(arguments!!)
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, "Shared")
+        return shareIntent
+    }
 }

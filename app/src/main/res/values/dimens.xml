@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="manage_etc10dp">20dp</dimen>
+<dimen name="manage_etc10dp">16dp</dimen>
+
+    <dimen name="manage_submitBT_width">100dp</dimen>
+    <dimen name="manage_submitBT_height">50dp</dimen>
 </resources>
