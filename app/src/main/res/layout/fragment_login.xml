@@ -68,8 +68,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordInput"
-            android:onClick="@{ () -> loginViewModel.loginEnter()}"
-            />
+            android:onClick="@{ () -> loginViewModel.loginEnter()}"/>
 
         <ImageView
             android:id="@+id/imageView2"

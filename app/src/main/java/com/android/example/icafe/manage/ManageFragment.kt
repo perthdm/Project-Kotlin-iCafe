@@ -32,6 +32,7 @@ class ManageFragment : Fragment() {
             manageSelectButton.setOnClickListener{thisView -> thisView.findNavController().navigate(
                 R.id.action_manageFragment_to_detailFragment
             ) }
+
             manage1Button.setOnClickListener{ thisView -> changeColor(binding.manage1Button, arr) }
             manage2Button.setOnClickListener{ thisView -> changeColor(binding.manage2Button, arr) }
             manage3Button.setOnClickListener{ thisView -> changeColor(binding.manage3Button, arr) }

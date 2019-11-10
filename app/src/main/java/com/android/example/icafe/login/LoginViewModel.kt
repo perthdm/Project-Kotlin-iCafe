@@ -8,9 +8,7 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    private val _eventEnterLogin = MutableLiveData<Boolean>()
-    val eventEnterLogin: LiveData<Boolean>
-        get() = _eventEnterLogin
+
 
     private val _eventCheckInput = MutableLiveData<Boolean>()
     val eventCheckInput : LiveData<Boolean>
@@ -31,7 +29,6 @@ class LoginViewModel : ViewModel() {
 
     init {
         Log.i("LoginViewModel", "LoginViewModel --> Created ")
-        _eventEnterLogin.value = false
         _eventCheckInput.value = false
         _toastEmptyInput.value = false
         _toastShowMessage.value = false

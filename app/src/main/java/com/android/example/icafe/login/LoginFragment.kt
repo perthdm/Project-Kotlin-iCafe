@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
         binding.loginViewModel = viewModel
         binding.lifecycleOwner = this
 
-        val args = LoginFragmentArgs.fromBundle(arguments!!)
+//        val args = LoginFragmentArgs.fromBundle(arguments!!)
 
 
         //Call --> Submit and sent username/password
@@ -46,7 +46,7 @@ class LoginFragment : Fragment() {
             }
         })
 
-        //Call --> Toast input is empty
+        //TOAST --> Toast input is empty
         viewModel.toastEmptyInput.observe(this, Observer<Boolean> { boolean ->
             if (boolean) {
                 Toast.makeText(activity, "Input is empty", Toast.LENGTH_LONG).show()
@@ -55,7 +55,7 @@ class LoginFragment : Fragment() {
         })
 
 
-        //Call --> Toast show username and password
+        //TOAST --> show username and password
         viewModel.toastShowMessage.observe(this, Observer<Boolean> { boolean ->
             if (boolean) {
                 Toast.makeText(activity, "Username: admin // Password: 12345", Toast.LENGTH_LONG).show()
@@ -66,10 +66,10 @@ class LoginFragment : Fragment() {
         //Call --> Success Login
         viewModel.eventSuccessLogin.observe(this, Observer<Boolean> { boolean ->
             if (boolean) {
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMenuFragment())
+                this.findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
             }
         })
-        setHasOptionsMenu(false);
+
         return binding.root
     }
 }
