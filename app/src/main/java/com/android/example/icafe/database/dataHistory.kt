@@ -1,4 +1,4 @@
-package com.android.example.icafe
+package com.android.example.icafe.database
 
 import android.os.CountDownTimer
 import androidx.room.ColumnInfo
@@ -15,14 +15,8 @@ data class dataHistory(
     @ColumnInfo(name = "name")
     var name :String = "",
 
-    @ColumnInfo(name = "age")
-    var age :Int = 0,
-
     @ColumnInfo(name = "time")
     var time : Int = 0,
-
-    @ColumnInfo(name = "time_count")
-    var timeCount : CountDownTimer ,
 
     @ColumnInfo(name = "cost")
     var cost : Int = 0

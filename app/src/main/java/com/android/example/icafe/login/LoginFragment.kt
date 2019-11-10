@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
 
         val binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater,R.layout.fragment_login, container, false)
 
-        Log.i("LoginFragment", "Called --> ViewModelProviders.of")
+        Log.i("LoginFragment", "Called --> ViewModelProviders.of LoginViewModel")
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         binding.loginViewModel = viewModel

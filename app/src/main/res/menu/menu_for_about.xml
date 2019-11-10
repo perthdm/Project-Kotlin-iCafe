@@ -9,19 +9,9 @@
         android:title=""
         app:showAsAction="always"/>
 
+    <item android:id="@+id/loginFragment" android:title="LOGOUT"/>
 
-    <item
-        android:id="@+id/manageFragment"
-        android:title="MANAGER"/>
-
-    <item
-        android:id="@+id/historyFragment"
-        android:title="HISTORY"/>
-
-    <item
-        android:id="@+id/loginFragment"
-        android:title="LOGOUT"
-        android:icon="@drawable/logo"/>
-
+    <!--    <item android:id="@+id/manageFragment" android:title="MANAGER"/>-->
+    <!--    <item android:id="@+id/historyFragment" android:title="HISTORY"/>-->
 
 </menu>

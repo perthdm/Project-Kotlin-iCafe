@@ -8,8 +8,6 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-
-
     private val _eventCheckInput = MutableLiveData<Boolean>()
     val eventCheckInput : LiveData<Boolean>
         get() = _eventCheckInput

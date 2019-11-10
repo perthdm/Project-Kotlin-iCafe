@@ -35,12 +35,7 @@
         android:id="@+id/aboutFragment"
         android:name="com.android.example.icafe.about.AboutFragment"
         android:label="iCafe "
-        tools:layout="@layout/fragment_about" >
-        <argument
-            android:name="shareClick"
-            app:argType="integer"
-            android:defaultValue="0" />
-    </fragment>
+        tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/manageFragment"
         android:name="com.android.example.icafe.manage.ManageFragment"
@@ -58,6 +53,9 @@
         <action
             android:id="@+id/action_detailFragment_to_manageFragment"
             app:destination="@id/manageFragment" />
+        <argument
+            android:name="safe_SelectCom"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"

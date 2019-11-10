@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.android.example.icafe.manage.ManageFragment">
 
+    <data>
+        <variable name="manageViewModel" type="com.android.example.icafe.manage.ManageViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -53,41 +57,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="200dp"
             android:text="@string/manage_costText"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView4"
-            style="@style/manage_normalText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="100dp"
-            android:text="@string/manage_ageText"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
             android:id="@+id/textView5"
             style="@style/manage_normalText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="236dp"
             android:text="@string/manage_timeText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
             android:id="@+id/manage_9Button"
@@ -97,7 +84,9 @@
             android:layout_marginEnd="80dp"
             android:text="9"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_8Button"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{ () -> manageViewModel.selectedClick(9) }"
+            />
 
         <Button
             android:id="@+id/manage_7Button"
@@ -107,7 +96,8 @@
             android:layout_marginStart="80dp"
             android:text="7"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_8Button"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{ () -> manageViewModel.selectedClick(7) }"/>
 
         <Button
             android:id="@+id/manage_8Button"
@@ -118,7 +108,8 @@
             android:text="8"
             app:layout_constraintEnd_toStartOf="@+id/manage_9Button"
             app:layout_constraintStart_toEndOf="@+id/manage_7Button"
-            app:layout_constraintTop_toBottomOf="@+id/manage_5Button" />
+            app:layout_constraintTop_toBottomOf="@+id/manage_5Button"
+            android:onClick="@{ () -> manageViewModel.selectedClick(8) }"/>
 
         <Button
             android:id="@+id/manage_6Button"
@@ -128,7 +119,8 @@
             android:text="6"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/manage_nineButton" />
+            style="@style/manage_nineButton"
+            android:onClick="@{ () -> manageViewModel.selectedClick(6) }"/>
 
         <Button
             android:id="@+id/manage_2Button"
@@ -139,7 +131,8 @@
             android:text="2"
             app:layout_constraintEnd_toStartOf="@+id/manage_3Button"
             app:layout_constraintStart_toEndOf="@+id/manage_1Button"
-            app:layout_constraintTop_toBottomOf="@+id/about_aboutText3" />
+            app:layout_constraintTop_toBottomOf="@+id/about_aboutText3"
+            android:onClick="@{ () -> manageViewModel.selectedClick(2) }"/>
 
         <Button
             android:id="@+id/manage_3Button"
@@ -149,7 +142,8 @@
             android:layout_marginEnd="80dp"
             android:text="3"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_2Button"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{ () -> manageViewModel.selectedClick(3) }"/>
 
         <TextView
             android:id="@+id/about_aboutText3"
@@ -160,7 +154,8 @@
             android:text="@string/manage_manageText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <Button
             android:id="@+id/manage_1Button"
@@ -170,7 +165,8 @@
             android:layout_marginStart="80dp"
             android:text="1"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_2Button"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{ () -> manageViewModel.selectedClick(1) }"/>
 
         <Button
             android:id="@+id/manage_4Button"
@@ -180,7 +176,8 @@
             android:layout_marginStart="80dp"
             android:text="4"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{ () -> manageViewModel.selectedClick(4) }"/>
 
         <Button
             android:id="@+id/manage_5Button"
@@ -191,7 +188,8 @@
             android:text="5"
             app:layout_constraintEnd_toStartOf="@+id/manage_6Button"
             app:layout_constraintStart_toEndOf="@+id/manage_4Button"
-            app:layout_constraintTop_toBottomOf="@+id/manage_2Button" />
+            app:layout_constraintTop_toBottomOf="@+id/manage_2Button"
+            android:onClick="@{ () -> manageViewModel.selectedClick(5) }"/>
 
         <Button
             android:id="@+id/manage_selectButton"
@@ -199,13 +197,17 @@
             android:layout_width="@dimen/manage_submitBT_width"
             android:layout_height="@dimen/manage_submitBT_height"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="50dp"
             android:text="@string/manage_selectText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintHorizontal_bias="0.875"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/manage_9Button" />
+            app:layout_constraintTop_toBottomOf="@+id/manage_9Button"
+            app:layout_constraintVertical_bias="0.285"
+            android:onClick="@{ () -> manageViewModel.clickSubmit() }"
+            />
 
         <TextView
             android:id="@+id/textView3"
@@ -214,7 +216,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="70dp"
             android:text="@string/manage_nameText"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manage_7Button" />
 
