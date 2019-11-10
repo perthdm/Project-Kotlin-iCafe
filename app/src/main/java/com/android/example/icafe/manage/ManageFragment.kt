@@ -1,6 +1,7 @@
 package com.android.example.icafe.manage
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
@@ -21,8 +22,7 @@ class ManageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentManageBinding>(inflater,
-            R.layout.fragment_manage, container, false)
+        val binding = DataBindingUtil.inflate<FragmentManageBinding>(inflater, R.layout.fragment_manage, container, false)
         var arr = arrayOf<Button>()
 
         binding.apply {
@@ -43,7 +43,7 @@ class ManageFragment : Fragment() {
             manage9Button.setOnClickListener{ thisView -> changeColor(binding.manage9Button, arr) }
         }
 
-
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -52,5 +52,38 @@ class ManageFragment : Fragment() {
        selectButton.setBackgroundColor(Color.parseColor("#EBFF24"))
    }
 
+
+    ///================ Right Menu for share ================///
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu_for_manager, menu)
+
+        if(null == getShareIntent().resolveActivity(activity!!.packageManager)){
+            menu?.findItem(R.id.share)?.setVisible(false)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item!!.itemId){
+            R.id.share -> shareSuccess()
+        }
+
+        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController()) || super.onOptionsItemSelected(item)
+
+    }
+    ///================ Right Menu for share ================///
+
+
+    private fun getShareIntent() : Intent {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        //val args = AboutFragmentArgs.fromBundle(arguments!!)
+
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, "Shared")
+        return shareIntent
+    }
+
+    private fun shareSuccess(){
+        startActivity(getShareIntent())
+    }
 
 }
