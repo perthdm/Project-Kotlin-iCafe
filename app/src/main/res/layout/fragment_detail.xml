@@ -3,7 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".detail.DetailFragment">
+    tools:context="com.android.example.icafe.detail.DetailFragment">
+
+    <data>
+        <variable name="detailViewModel" type="com.android.example.icafe.detail.DetailViewModel" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,7 +57,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_timeInput" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_timeInput"
+            android:onClick="@{ () -> detailViewModel.submitEnter()  }"/>
 
         <EditText
             android:id="@+id/detail_timeInput"
@@ -69,6 +75,27 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_nameInput" />
+
+        <TextView
+            android:id="@+id/comNumberText"
+            style="@style/login_loginInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="195dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/detail_ComputerNoText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/comNumberValue"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/comNumberValue"
+            style="@style/login_loginInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/comNumberText"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -33,19 +33,17 @@ class AboutFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item!!.itemId){
-            R.id.share -> shareSuccess()
-        }
+        when (item!!.itemId){ R.id.share -> shareSuccess() }
 
         return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController()) || super.onOptionsItemSelected(item)
-
     }
     ///================ Right Menu for share ================///
 
 
+
+    ///================ SHARE ================///
     private fun getShareIntent() : Intent {
         val shareIntent = Intent(Intent.ACTION_SEND)
-        //val args = AboutFragmentArgs.fromBundle(arguments!!)
 
         shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, "Shared")
         return shareIntent
@@ -54,6 +52,8 @@ class AboutFragment : Fragment() {
     private fun shareSuccess(){
         startActivity(getShareIntent())
     }
+    ///================ SHARE ================///
+
 
 
 }

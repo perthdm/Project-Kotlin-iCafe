@@ -45,6 +45,7 @@ class ManageFragment : Fragment() {
             }
         })
 
+
         viewModel.toastPleaseSelect.observe(this, Observer<Boolean> { boolean ->
             if (boolean) {
                 Toast.makeText(activity, "Please select some button", Toast.LENGTH_LONG).show()

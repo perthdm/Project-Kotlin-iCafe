@@ -54,7 +54,7 @@
             android:id="@+id/action_detailFragment_to_manageFragment"
             app:destination="@id/manageFragment" />
         <argument
-            android:name="safe_SelectCom"
+            android:name="safeComSelected"
             app:argType="integer" />
     </fragment>
     <fragment

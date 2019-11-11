@@ -53,6 +53,7 @@
     <string name="detail_nameHint">NAME</string>
     <string name="detail_timeHint">TIME</string>
     <string name="detail_ageHint">AGE</string>
+    <string name="detail_ComputerNoText">Computer No. -> </string>
     <string name="detail_submitText">SUBMIT</string>
 
 </resources>
