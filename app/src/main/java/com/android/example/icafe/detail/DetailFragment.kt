@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.android.example.icafe.R
+import com.android.example.icafe.databinding.ActivityMainBinding
 import com.android.example.icafe.databinding.FragmentDetailBinding
 import java.time.LocalDateTime
 
@@ -27,7 +28,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val binding = DataBindingUtil.inflate<FragmentDetailBinding>(inflater, R.layout.fragment_detail,container,false)
         val args = DetailFragmentArgs.fromBundle(arguments!!)
 //        viewModel = ViewModelProviders.of(this,viewModelFactory).get(DetailViewModel::class.java)
 

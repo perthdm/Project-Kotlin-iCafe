@@ -1,9 +1,12 @@
 package com.android.example.icafe.detail
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.time.LocalTime
 
 class DetailViewModel: ViewModel() {
 
@@ -32,7 +35,11 @@ class DetailViewModel: ViewModel() {
         _eventSubmitData.value = false
     }
 
+
+//    @RequiresApi(Build.VERSION_CODES.O)
     fun submitEnter(){
+//        var now = LocalTime.now()
+//        Log.i("Time","${now}");
         _eventGetInput.value = true
     }
 
@@ -49,4 +56,6 @@ class DetailViewModel: ViewModel() {
             _eventSubmitData.value = true
         }
     }
+
+
 }
