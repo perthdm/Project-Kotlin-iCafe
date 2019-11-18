@@ -8,12 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.android.example.icafe.R
 import com.android.example.icafe.databinding.FragmentMenuBinding
-import kotlinx.android.synthetic.main.fragment_login.*
 
 
 class MenuFragment : Fragment() {
@@ -38,7 +35,7 @@ class MenuFragment : Fragment() {
         //Click --> Manager Page
         viewModel.eventClickManager.observe(this, Observer<Boolean>{  boolean ->
             if (boolean) {
-                this.findNavController().navigate(R.id.action_menuFragment_to_manageFragment)
+                this.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToManageFragment("Menu"))
             }
         })
 

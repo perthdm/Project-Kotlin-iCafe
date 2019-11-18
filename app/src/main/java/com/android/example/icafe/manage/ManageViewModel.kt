@@ -35,7 +35,6 @@ class ManageViewModel: ViewModel() {
 
 
     fun selectedClick(num : Int){
-//        Log.i("Manage","True : ${num}")
         _eventChangeColor.value = num
         _safeArgs.value = num
         selected = num

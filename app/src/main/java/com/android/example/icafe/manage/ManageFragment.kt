@@ -17,11 +17,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.android.example.icafe.R
 import com.android.example.icafe.databinding.FragmentManageBinding
+import com.android.example.icafe.login.LoginFragmentDirections
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class ManageFragment : Fragment() {
-    private lateinit var binding: FragmentManageBinding
     private lateinit var viewModel: ManageViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,16 +33,21 @@ class ManageFragment : Fragment() {
             Log.i("ManageFragment", "Called --> ViewModelProviders.of ManageViewModel")
             viewModel = ViewModelProviders.of(this).get(ManageViewModel::class.java)
 
+
+
+
             binding.manageViewModel = viewModel
             binding.lifecycleOwner = this
 
+
+        val args = ManageFragmentArgs.fromBundle(arguments!!)
+        Log.i("ManageFragment",args.dataID)
+
         viewModel.eventClickSubmit.observe(this, Observer<Boolean> { boolean ->
             if (boolean) {
-
                 viewModel.safeArgs.observe(this, Observer<Int> { safeArgs ->
                     this.findNavController().navigate(ManageFragmentDirections.actionManageFragmentToDetailFragment(safeArgs))
                 })
-
             }
         })
 
@@ -49,7 +55,6 @@ class ManageFragment : Fragment() {
         viewModel.toastPleaseSelect.observe(this, Observer<Boolean> { boolean ->
             if (boolean) {
                 Toast.makeText(activity, "Please select some button", Toast.LENGTH_LONG).show()
-
             }
         })
 
@@ -62,10 +67,6 @@ class ManageFragment : Fragment() {
                     manage4Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
                     manage5Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
                     manage6Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage7Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage8Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage9Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-
                     when (button) {
                         1 -> manage1Button.setBackgroundColor(Color.parseColor("#EBFF24"))
                         2 -> manage2Button.setBackgroundColor(Color.parseColor("#EBFF24"))
@@ -73,9 +74,7 @@ class ManageFragment : Fragment() {
                         4 -> manage4Button.setBackgroundColor(Color.parseColor("#EBFF24"))
                         5 -> manage5Button.setBackgroundColor(Color.parseColor("#EBFF24"))
                         6 -> manage6Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        7 -> manage7Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        8 -> manage8Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        9 -> manage9Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+
                     }
                 }
 

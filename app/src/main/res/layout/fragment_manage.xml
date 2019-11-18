@@ -70,57 +70,23 @@
             style="@style/manage_normalText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="236dp"
             android:text="@string/manage_timeText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <Button
-            android:id="@+id/manage_9Button"
-            style="@style/manage_nineButton"
-            android:layout_width="62dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="80dp"
-            android:text="9"
-            app:layout_constraintBaseline_toBaselineOf="@+id/manage_8Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{ () -> manageViewModel.selectedClick(9) }"
-            />
-
-        <Button
-            android:id="@+id/manage_7Button"
-            style="@style/manage_nineButton"
-            android:layout_width="62dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="80dp"
-            android:text="7"
-            app:layout_constraintBaseline_toBaselineOf="@+id/manage_8Button"
+            app:layout_constraintEnd_toStartOf="@+id/manage_selectButton4"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{ () -> manageViewModel.selectedClick(7) }"/>
-
-        <Button
-            android:id="@+id/manage_8Button"
-            style="@style/manage_nineButton"
-            android:layout_width="62dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="25dp"
-            android:text="8"
-            app:layout_constraintEnd_toStartOf="@+id/manage_9Button"
-            app:layout_constraintStart_toEndOf="@+id/manage_7Button"
-            app:layout_constraintTop_toBottomOf="@+id/manage_5Button"
-            android:onClick="@{ () -> manageViewModel.selectedClick(8) }"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
             android:id="@+id/manage_6Button"
+            style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginEnd="80dp"
-            android:text="6"
+            android:onClick="@{ () -> manageViewModel.selectedClick(6) }"
+            android:text="@string/manage_6Button"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/manage_nineButton"
-            android:onClick="@{ () -> manageViewModel.selectedClick(6) }"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/manage_2Button"
@@ -128,11 +94,11 @@
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
-            android:text="2"
+            android:onClick="@{ () -> manageViewModel.selectedClick(2) }"
+            android:text="@string/manage_2Button"
             app:layout_constraintEnd_toStartOf="@+id/manage_3Button"
             app:layout_constraintStart_toEndOf="@+id/manage_1Button"
-            app:layout_constraintTop_toBottomOf="@+id/about_aboutText3"
-            android:onClick="@{ () -> manageViewModel.selectedClick(2) }"/>
+            app:layout_constraintTop_toBottomOf="@+id/about_aboutText3" />
 
         <Button
             android:id="@+id/manage_3Button"
@@ -140,10 +106,10 @@
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginEnd="80dp"
-            android:text="3"
+            android:onClick="@{ () -> manageViewModel.selectedClick(3) }"
+            android:text="@string/manage_3Button"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_2Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{ () -> manageViewModel.selectedClick(3) }"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/about_aboutText3"
@@ -163,10 +129,10 @@
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginStart="80dp"
-            android:text="1"
+            android:onClick="@{ () -> manageViewModel.selectedClick(1) }"
+            android:text="@string/manage_1Button"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_2Button"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{ () -> manageViewModel.selectedClick(1) }"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/manage_4Button"
@@ -174,40 +140,48 @@
             android:layout_width="62dp"
             android:layout_height="60dp"
             android:layout_marginStart="80dp"
-            android:text="4"
+            android:onClick="@{ () -> manageViewModel.selectedClick(4) }"
+            android:text="@string/manage_4Button"
             app:layout_constraintBaseline_toBaselineOf="@+id/manage_5Button"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{ () -> manageViewModel.selectedClick(4) }"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/manage_5Button"
             style="@style/manage_nineButton"
             android:layout_width="62dp"
             android:layout_height="60dp"
-            android:layout_marginTop="25dp"
-            android:text="5"
+            android:layout_marginTop="40dp"
+            android:onClick="@{ () -> manageViewModel.selectedClick(5) }"
+            android:text="@string/manage_5Button"
             app:layout_constraintEnd_toStartOf="@+id/manage_6Button"
             app:layout_constraintStart_toEndOf="@+id/manage_4Button"
-            app:layout_constraintTop_toBottomOf="@+id/manage_2Button"
-            android:onClick="@{ () -> manageViewModel.selectedClick(5) }"/>
+            app:layout_constraintTop_toBottomOf="@+id/manage_2Button" />
 
         <Button
             android:id="@+id/manage_selectButton"
             style="@style/manage_submitButton"
             android:layout_width="@dimen/manage_submitBT_width"
             android:layout_height="@dimen/manage_submitBT_height"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="60dp"
+            android:onClick="@{ () -> manageViewModel.clickSubmit() }"
             android:text="@string/manage_selectText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/manage_6Button" />
+
+        <Button
+            android:id="@+id/manage_selectButton4"
+            style="@style/manage_submitButton"
+            android:layout_width="@dimen/manage_submitBT_width"
+            android:layout_height="@dimen/manage_submitBT_height"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:onClick="@{ () -> manageViewModel.clickSubmit() }"
+            android:text="@string/manage_stopText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.875"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/manage_9Button"
-            app:layout_constraintVertical_bias="0.285"
-            android:onClick="@{ () -> manageViewModel.clickSubmit() }"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/manage_selectButton"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView3"
@@ -215,12 +189,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="55dp"
             android:layout_marginEnd="70dp"
             android:text="@string/manage_nameText"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/manage_7Button" />
+            app:layout_constraintTop_toBottomOf="@+id/manage_5Button" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="70dp"
+            android:text="@string/manage_ageText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/manage_yellowBox"

@@ -32,6 +32,8 @@
     <string name="manage_timeText">เวลา : 23 วินาที</string>
     <string name="manage_costText">ราคา : 200 บาท</string>
     <string name="manage_selectText">SELECT</string>
+    <string name="manage_stopText">STOP</string>
+
 
     <string name="manage_emptyText">ว่าง</string>
     <string name="manage_selectingText">กำลังเลือก</string>
@@ -43,15 +45,11 @@
     <string name="manage_4Button">4</string>
     <string name="manage_5Button">5</string>
     <string name="manage_6Button">6</string>
-    <string name="manage_7Button">7</string>
-    <string name="manage_8Button">8</string>
-    <string name="manage_9Button">9</string>
     <!--Manager -->
 
 
     <string name="detail_detailText">DETAIL</string>
     <string name="detail_nameHint">NAME</string>
-    <string name="detail_timeHint">TIME</string>
     <string name="detail_ageHint">AGE</string>
     <string name="detail_ComputerNoText">Computer No. -> </string>
     <string name="detail_submitText">SUBMIT</string>

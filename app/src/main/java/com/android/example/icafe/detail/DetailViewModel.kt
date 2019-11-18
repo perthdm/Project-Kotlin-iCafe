@@ -1,14 +1,29 @@
 package com.android.example.icafe.detail
 
+import android.app.Application
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.example.icafe.database.DataHistory
+import com.android.example.icafe.database.DataHistoryDatabaseDao
+import com.android.example.icafe.database.ObjectDataHistory
+import kotlinx.coroutines.*
 import java.time.LocalTime
+import java.util.*
+import kotlin.math.log
 
-class DetailViewModel: ViewModel() {
+class DetailViewModel(val database: DataHistoryDatabaseDao, application: Application) : AndroidViewModel(application) {
+
+
+    //==== Database ====//
+    private var viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    //==== Database ====//
+
 
     private val _eventInit = MutableLiveData<Boolean>()
     val  eventInit : LiveData<Boolean>
@@ -26,36 +41,66 @@ class DetailViewModel: ViewModel() {
     val toastEmptyInput  : LiveData<Boolean>
         get() = _toastEmptyInput
 
-    private val _timeLiveData = MutableLiveData<Long>()
-    val timeLiveData  : LiveData<Long>
-        get() = _timeLiveData
+    private val _dataIdHitden = MutableLiveData<Long>()
+    val  dataIdHitden : LiveData<Long>
+        get() = _dataIdHitden
+
+
+
 
     init {
         _eventInit.value = true
         _eventSubmitData.value = false
+        _dataIdHitden.value = -1
     }
 
 
-//    @RequiresApi(Build.VERSION_CODES.O)
     fun submitEnter(){
-//        var now = LocalTime.now()
-//        Log.i("Time","${now}");
         _eventGetInput.value = true
     }
 
-    fun checkInput(name:String , time:String){
 
-
-        if(name == ""  || time == ""){
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun checkInput(nameInput:String, ageInput:String , comSelected : Int){
+        uiScope.launch {
+        if(nameInput == ""  || ageInput == ""){
             _toastEmptyInput.value = true
         }else{
-            var timeLong = time.toLong()
+            var historyData = DataHistory(
+                name = nameInput,
+                age = ageInput.toInt(),
+                com = comSelected,
+                time_start = LocalTime.now().toString(),
+                time_end = LocalTime.now().toString())
+                insertData(historyData)
+                var newData = getOnlyOnce()
+            Log.i("historyData","${newData}")
+            if (newData != null) {
+                _dataIdHitden.value = newData.historyId
+            }
 
-            Log.i("DetailViewModel","User: ${name} || Time: ${time} Sec.")
-            _timeLiveData.value = timeLong
             _eventSubmitData.value = true
+            }
         }
     }
+
+    private suspend fun insertData(data : DataHistory){
+        withContext(Dispatchers.IO){
+            database.insert(data)
+        }
+    }
+
+    private suspend fun getOnlyOnce(): DataHistory?{
+      return withContext(Dispatchers.IO){
+           var data = database.getHistoryLastest()
+            data
+        }
+    }
+
+
+
+
+
 
 
 }
