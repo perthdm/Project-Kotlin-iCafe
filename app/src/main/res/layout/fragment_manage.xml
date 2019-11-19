@@ -15,6 +15,19 @@
         android:background="#F39C12">
 
         <TextView
+            android:id="@+id/textView4"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="200dp"
+            android:text="@{ manageViewModel.ageLiveData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
             android:id="@+id/manage_selectingText"
             style="@style/manage_smallText"
             android:layout_width="wrap_content"
@@ -23,9 +36,7 @@
             android:layout_marginBottom="30dp"
             android:text="@string/manage_selectingText"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/manage_yellowBox"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toEndOf="@+id/manage_yellowBox" />
 
         <TextView
             android:id="@+id/manage_busyText"
@@ -51,31 +62,32 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView6"
-            style="@style/manage_normalText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="200dp"
-            android:text="@string/manage_costText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
             android:id="@+id/textView5"
             style="@style/manage_normalText"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:text="@string/manage_timeText"
             app:layout_constraintEnd_toStartOf="@+id/manage_selectButton4"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/manage_normalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{ manageViewModel.timeStartLiveData }"
+            app:layout_constraintEnd_toStartOf="@+id/manage_selectButton4"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <Button
             android:id="@+id/manage_6Button"
@@ -164,7 +176,7 @@
             android:layout_height="@dimen/manage_submitBT_height"
             android:layout_marginTop="55dp"
             android:layout_marginEnd="60dp"
-            android:onClick="@{ () -> manageViewModel.clickSubmit() }"
+            android:onClick="@{ () -> manageViewModel.onClick() }"
             android:text="@string/manage_selectText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manage_6Button" />
@@ -176,7 +188,7 @@
             android:layout_height="@dimen/manage_submitBT_height"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="60dp"
-            android:onClick="@{ () -> manageViewModel.clickSubmit() }"
+            android:onClick="@{ () -> manageViewModel.onStop() }"
             android:text="@string/manage_stopText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -186,28 +198,35 @@
         <TextView
             android:id="@+id/textView3"
             style="@style/manage_normalText"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:layout_marginTop="55dp"
-            android:layout_marginEnd="70dp"
             android:text="@string/manage_nameText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manage_5Button" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/name_value"
             style="@style/manage_normalText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{ manageViewModel.nameLiveData  }"
+            app:layout_constraintEnd_toStartOf="@+id/manage_selectButton"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/manage_4Button" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/manage_normalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="70dp"
+            android:layout_marginTop="25dp"
             android:text="@string/manage_ageText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 

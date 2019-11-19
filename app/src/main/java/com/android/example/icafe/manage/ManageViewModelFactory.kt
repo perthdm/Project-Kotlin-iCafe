@@ -1,18 +1,19 @@
-package com.android.example.icafe.detail
+package com.android.example.icafe.manage
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.android.example.icafe.database.DataHistoryDatabaseDao
 
-class DetailViewModelFactory (
-    private val dataSource: DataHistoryDatabaseDao,
-    private val application: Application) : ViewModelProvider.Factory {
+
+    class ManageViewModelFactory (
+        private val dataSource: DataHistoryDatabaseDao,
+        private val application: Application) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
-                return DetailViewModel(dataSource,application) as T
+            if (modelClass.isAssignableFrom(ManageViewModel::class.java)) {
+                return ManageViewModel(dataSource,application) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }
-}
+    }

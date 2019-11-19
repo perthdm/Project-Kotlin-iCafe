@@ -20,7 +20,7 @@ import com.android.example.icafe.databinding.FragmentDetailBinding
 
 
 class DetailFragment : Fragment() {
-    private lateinit var binding: FragmentDetailBinding
+
     private lateinit var viewModel: DetailViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -44,11 +44,7 @@ class DetailFragment : Fragment() {
 
 
         ///================ STEP-1 Call --> Init ================///
-        viewModel.eventInit.observe(this, Observer<Boolean> { boolean ->
-            if(boolean){
-                binding.comNumberValue.setText("${args.safeComSelected}")
-            }
-        })
+        viewModel.constructor(args.safeComSelected)
         ///================ STEP-1 Call --> Init ================///
 
 
@@ -80,8 +76,6 @@ class DetailFragment : Fragment() {
                 var dataID = viewModel.dataIdHitden.value.toString()
                 Log.i("DetailFragment",dataID)
                 this.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToManageFragment(dataID))
-//                this.findNavController().navigate(R.id.action_detailFragment_to_manageFragment)
-                Log.i("DetailFragment","Submit Data")
             }
         })
         ///================ STEP-3 Call --> Clicked Submit  ================///

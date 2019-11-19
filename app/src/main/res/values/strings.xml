@@ -27,10 +27,10 @@
 
     <!--Manager -->
     <string name="manage_manageText">MANAGER</string>
-    <string name="manage_nameText">ชื่อ : Perth</string>
-    <string name="manage_ageText">อายุ : 22 ปี</string>
-    <string name="manage_timeText">เวลา : 23 วินาที</string>
-    <string name="manage_costText">ราคา : 200 บาท</string>
+    <string name="manage_nameText">Name:</string>
+    <string name="manage_ageText">Age:</string>
+    <string name="manage_timeText">Start:</string>
+    <string name="manage_costText">Cost:</string>
     <string name="manage_selectText">SELECT</string>
     <string name="manage_stopText">STOP</string>
 

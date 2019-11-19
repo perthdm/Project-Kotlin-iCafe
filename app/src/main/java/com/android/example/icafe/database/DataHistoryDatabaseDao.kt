@@ -28,4 +28,12 @@ interface DataHistoryDatabaseDao {
         fun getHistory(): LiveData<List<DataHistory>>
 
 
+
+        @Query("SELECT * from data_history_table WHERE com = :selected ORDER BY time_start DESC LIMIT 1" )
+        fun getComSelected(selected:Int): DataHistory?
+
+        @Query("SELECT * from data_history_table GROUP BY com")
+        fun getEmptyGroupBy(): DataHistory?
+
+
     }

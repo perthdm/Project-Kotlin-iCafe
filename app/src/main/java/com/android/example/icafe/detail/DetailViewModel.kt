@@ -7,16 +7,12 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.android.example.icafe.database.DataHistory
-import com.android.example.icafe.database.DataHistoryDatabaseDao
-import com.android.example.icafe.database.ObjectDataHistory
+import com.android.example.icafe.database.*
 import kotlinx.coroutines.*
 import java.time.LocalTime
-import java.util.*
-import kotlin.math.log
 
-class DetailViewModel(val database: DataHistoryDatabaseDao, application: Application) : AndroidViewModel(application) {
+class DetailViewModel(val database: DataHistoryDatabaseDao,
+                      application: Application) : AndroidViewModel(application) {
 
 
     //==== Database ====//
@@ -25,9 +21,6 @@ class DetailViewModel(val database: DataHistoryDatabaseDao, application: Applica
     //==== Database ====//
 
 
-    private val _eventInit = MutableLiveData<Boolean>()
-    val  eventInit : LiveData<Boolean>
-        get() = _eventInit
 
     private val _eventSubmitData = MutableLiveData<Boolean>()
     val  eventSubmitData : LiveData<Boolean>
@@ -46,12 +39,24 @@ class DetailViewModel(val database: DataHistoryDatabaseDao, application: Applica
         get() = _dataIdHitden
 
 
+    private val _dataSelected = MutableLiveData<Int>()
+    val  dataSelected : LiveData<Int>
+        get() = _dataSelected
+
+    private val _init = MutableLiveData<Int>()
+    val  init : LiveData<Int>
+        get() = _init
+
+
+    fun constructor(comSelected: Int){
+        _dataSelected.value = comSelected
+    }
 
 
     init {
-        _eventInit.value = true
         _eventSubmitData.value = false
         _dataIdHitden.value = -1
+
     }
 
 
@@ -66,21 +71,23 @@ class DetailViewModel(val database: DataHistoryDatabaseDao, application: Applica
         if(nameInput == ""  || ageInput == ""){
             _toastEmptyInput.value = true
         }else{
+
             var historyData = DataHistory(
                 name = nameInput,
-                age = ageInput.toInt(),
+                age = ageInput,
                 com = comSelected,
                 time_start = LocalTime.now().toString(),
-                time_end = LocalTime.now().toString())
-                insertData(historyData)
-                var newData = getOnlyOnce()
+                time_end = "")
+
+            Log.i("DB","${historyData}")
+            insertData(historyData)
+            var newData = getOnlyOnce()
             Log.i("historyData","${newData}")
-            if (newData != null) {
-                _dataIdHitden.value = newData.historyId
-            }
+            Log.i("historyData","------------------")
 
             _eventSubmitData.value = true
-            }
+        }
+
         }
     }
 
@@ -90,12 +97,14 @@ class DetailViewModel(val database: DataHistoryDatabaseDao, application: Applica
         }
     }
 
+
     private suspend fun getOnlyOnce(): DataHistory?{
-      return withContext(Dispatchers.IO){
-           var data = database.getHistoryLastest()
+        return withContext(Dispatchers.IO){
+            var data = database.getHistoryLastest()
             data
         }
     }
+
 
 
 

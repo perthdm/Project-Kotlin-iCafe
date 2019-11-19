@@ -21,7 +21,7 @@ data class DataHistory(
     var name :String = "",
 
     @ColumnInfo(name = "age")
-    var age : Int = 0,
+    var age : String = "",
 
     @ColumnInfo(name = "time_start")
     var time_start : String = "",
