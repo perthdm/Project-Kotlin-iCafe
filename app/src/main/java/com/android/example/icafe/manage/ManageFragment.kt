@@ -56,32 +56,31 @@ class ManageFragment : Fragment() {
         })
 
         viewModel.eventChangeColor.observe(this, Observer<Int> { button ->
-            if (button != 0 && button != null) {
+//            if (button != 0 && button != null) {
+//
+//                binding.apply {
+//                    manage1Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
+//                    manage2Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
+//                    manage3Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
+//                    manage4Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
+//                    manage5Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
+//                    manage6Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
+//                    when (button) {
+//                        1 -> manage1Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+//                        2 -> manage2Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+//                        3 -> manage3Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+//                        4 -> manage4Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+//                        5 -> manage5Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+//                        6 -> manage6Button.setBackgroundColor(Color.parseColor("#EBFF24"))
+//
+//                    }
+//                }
+//            }
 
-                binding.apply {
-                    manage1Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage2Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage3Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage4Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage5Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    manage6Button.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    when (button) {
-                        1 -> manage1Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        2 -> manage2Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        3 -> manage3Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        4 -> manage4Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        5 -> manage5Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-                        6 -> manage6Button.setBackgroundColor(Color.parseColor("#EBFF24"))
-
-                    }
-                }
-
-            }
-        })
-
-        viewModel.toastPleaseSelect.observe(this, Observer<Boolean> { boolean ->
 
         })
+
+
 
         setHasOptionsMenu(true)
         return binding.root

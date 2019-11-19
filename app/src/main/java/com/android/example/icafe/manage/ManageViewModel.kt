@@ -53,31 +53,61 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
     private val _timeStartLiveData = MutableLiveData<String>()
     val timeStartLiveData : LiveData<String>
         get() = _timeStartLiveData
+
+    private val _selectComLiveData = MutableLiveData<String>()
+    val selectComLiveData : LiveData<String>
+        get() = _selectComLiveData
     //===== Xml =====//
 
     private var selected :Int = 0
 
-    var C1 : DataHistory?  = null
-    var C2 : DataHistory?  = null
-    var C3 : DataHistory?  = null
-    var C4 : DataHistory?  = null
-    var C5 : DataHistory?  = null
-    var C6 : DataHistory?  = null
+
+    private val _C1 = MutableLiveData<DataHistory?>()
+    val C1 : LiveData<DataHistory?>
+        get() = _C1
+
+    private val _C2 = MutableLiveData<DataHistory?>()
+    val C2 : LiveData<DataHistory?>
+        get() = _C2
+
+    private val _C3 = MutableLiveData<DataHistory?>()
+    val C3 : LiveData<DataHistory?>
+        get() = _C3
+
+    private val _C4 = MutableLiveData<DataHistory?>()
+    val C4 : LiveData<DataHistory?>
+        get() = _C4
+
+    private val _C5 = MutableLiveData<DataHistory?>()
+    val C5 : LiveData<DataHistory?>
+        get() = _C5
+
+    private val _C6 = MutableLiveData<DataHistory?>()
+    val C6 : LiveData<DataHistory?>
+        get() = _C6
 
 
     init{
-        uiScope.launch {
-            C1 = getComSelected(1)
-            C2 = getComSelected(2)
-            C3 = getComSelected(3)
-            C4 = getComSelected(4)
-            C5 = getComSelected(5)
-            C6 = getComSelected(6)
-        }
+
         _eventChangeColorRed.value = true
         _eventChangeColor.value =  0
         _eventClickSubmit.value = false
         _onStopButton.value = false
+        _selectComLiveData.value = "-"
+        getDataButton()
+    }
+
+
+    fun getDataButton(){
+        uiScope.launch {
+            _C1.value = getComSelected(1)
+            _C2.value = getComSelected(2)
+            _C3.value = getComSelected(3)
+            _C4.value = getComSelected(4)
+            _C5.value = getComSelected(5)
+            _C6.value = getComSelected(6)
+            Log.i("getDataButton" , "${C1.value} ${C2.value}  ${C3.value}  ${C4.value}  ${C5.value} ${C6.value}")
+        }
     }
 
     fun onStop(){
@@ -95,9 +125,11 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
                 Log.i("DB","${getComSelected(com)}")
                 var data = getComSelected(com)
 
+
                 _nameLiveData.value = data?.name
                 _ageLiveData.value = data?.age
                 _timeStartLiveData.value = data?.time_start
+                _selectComLiveData.value =  com.toString()
             }
         }
 
