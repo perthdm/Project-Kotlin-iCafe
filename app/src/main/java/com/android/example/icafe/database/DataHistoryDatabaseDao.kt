@@ -33,7 +33,7 @@ interface DataHistoryDatabaseDao {
         fun getComSelected(selected:Int): DataHistory?
 
         @Query("SELECT * from data_history_table GROUP BY com")
-        fun getEmptyGroupBy(): DataHistory?
+        fun getEmptyGroupBy(): DataHistory
 
 
     }

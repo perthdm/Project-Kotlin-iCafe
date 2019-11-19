@@ -1,14 +1,19 @@
 package com.android.example.icafe.manage
 
 import android.app.Application
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.example.icafe.database.DataHistory
 import com.android.example.icafe.database.DataHistoryDatabaseDao
 import kotlinx.coroutines.*
+import java.time.LocalTime
+import java.time.temporal.ChronoUnit
 
+@RequiresApi(Build.VERSION_CODES.O)
 class ManageViewModel(val database: DataHistoryDatabaseDao, application: Application): AndroidViewModel(application) {
 
     //==== Database ====//
@@ -16,32 +21,7 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     //==== Database ====//
 
-    private val _eventClickSubmit = MutableLiveData<Boolean>()
-    val eventClickSubmit : LiveData<Boolean>
-        get() = _eventClickSubmit
-
-    private val _eventChangeColor = MutableLiveData<Int>()
-    val eventChangeColor : LiveData<Int>
-        get() = _eventChangeColor
-
-    private val _eventChangeColorRed = MutableLiveData<Boolean>()
-    val eventChangeColorRed : LiveData<Boolean>
-        get() = _eventChangeColorRed
-
-    private val _safeArgs = MutableLiveData<Int>()
-    val safeArgs : LiveData<Int>
-        get() = _safeArgs
-
-    private val _toastPleaseSelect = MutableLiveData<Boolean>()
-    val toastPleaseSelect : LiveData<Boolean>
-        get() = _toastPleaseSelect
-
-    private val _onStopButton = MutableLiveData<Boolean>()
-    val onStopButton : LiveData<Boolean>
-        get() = _onStopButton
-
-
-    //===== Xml =====//
+    //===== Xml LiveData =====//
     private val _nameLiveData = MutableLiveData<String>()
     val nameLiveData : LiveData<String>
         get() = _nameLiveData
@@ -57,11 +37,10 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
     private val _selectComLiveData = MutableLiveData<String>()
     val selectComLiveData : LiveData<String>
         get() = _selectComLiveData
-    //===== Xml =====//
 
-    private var selected :Int = 0
+    //===== Xml LiveData =====//
 
-
+    //===== Set -> C ====//
     private val _C1 = MutableLiveData<DataHistory?>()
     val C1 : LiveData<DataHistory?>
         get() = _C1
@@ -85,12 +64,32 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
     private val _C6 = MutableLiveData<DataHistory?>()
     val C6 : LiveData<DataHistory?>
         get() = _C6
+    //===== Set -> C ====//
+
+
+    private val _eventClickSubmit = MutableLiveData<Boolean>()
+    val eventClickSubmit : LiveData<Boolean>
+        get() = _eventClickSubmit
+
+    private val _safeArgsComSelected = MutableLiveData<Int>()
+    val safeArgsComSelected : LiveData<Int>
+        get() = _safeArgsComSelected
+
+    private val _toastPleaseSelect = MutableLiveData<Boolean>()
+    val toastPleaseSelect : LiveData<Boolean>
+        get() = _toastPleaseSelect
+
+    private val _onStopButton = MutableLiveData<Boolean>()
+    val onStopButton : LiveData<Boolean>
+        get() = _onStopButton
+
+
+    private var data =  MutableLiveData<DataHistory?>()
+    private var selected :Int = 0
+    var cost :Int? = 0
 
 
     init{
-
-        _eventChangeColorRed.value = true
-        _eventChangeColor.value =  0
         _eventClickSubmit.value = false
         _onStopButton.value = false
         _selectComLiveData.value = "-"
@@ -106,39 +105,64 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
             _C4.value = getComSelected(4)
             _C5.value = getComSelected(5)
             _C6.value = getComSelected(6)
-            Log.i("getDataButton" , "${C1.value} ${C2.value}  ${C3.value}  ${C4.value}  ${C5.value} ${C6.value}")
+            _nameLiveData.value = data.value?.name
+            _ageLiveData.value =  data.value?.age
+            _timeStartLiveData.value =  data.value?.time_start
         }
     }
 
     fun onStop(){
         uiScope.launch{
-            clearDB()
-        }
-//        _onStopButton.value = true
-    }
+            val oldData = data.value ?:return@launch
+            var timeStart : LocalTime = LocalTime.parse(data.value?.time_start)
+                timeStart = LocalTime.of(timeStart.hour,timeStart.minute,timeStart.second)
+//            var timeStart : LocalTime = LocalTime.parse(data?.value!!.time_start)
+            var timeEnd : LocalTime =  LocalTime.of(LocalTime.now().hour,LocalTime.now().minute , LocalTime.now().second)
+            var count = ChronoUnit.MINUTES.between(timeStart,timeEnd)
 
+            oldData.time_end = timeEnd.toString()
+            oldData.cost = count.toInt()*5
+            cost = count.toInt()*5
+            updateDB(oldData)
+
+            data.value = null
+
+            Log.i("Selected", selected.toString())
+            when(selected){
+                1 -> _C1.value = null
+                2 -> _C2.value = null
+                3 -> _C3.value = null
+                4 -> _C4.value = null
+                5 -> _C5.value = null
+                6 -> _C6.value = null
+            }
+            _onStopButton.value = true
+            getDataButton()
+        }
+    }
 
     fun selectedClick(com : Int){
-
         uiScope.launch {
             if(com != 0){
-                Log.i("DB","${getComSelected(com)}")
-                var data = getComSelected(com)
+                Log.i("Click","${com}")
+                Log.i("Click Selected","${getComSelected(com)}")
+                data.value  = getComSelected(com)
 
+                _nameLiveData.value = data.value?.name
+                _ageLiveData.value =  data.value?.age
+                _timeStartLiveData.value = data.value?.time_start
 
-                _nameLiveData.value = data?.name
-                _ageLiveData.value = data?.age
-                _timeStartLiveData.value = data?.time_start
+                if( data.value != null){
+                    var timeStartShow :LocalTime = LocalTime.parse(data.value?.time_start)
+                    _timeStartLiveData.value = LocalTime.of(timeStartShow.hour,timeStartShow.minute,timeStartShow.second).toString()
+                }
+
                 _selectComLiveData.value =  com.toString()
+                _safeArgsComSelected.value = com
+                selected = com
             }
         }
-
-        _eventChangeColor.value = com
-        _safeArgs.value = com
-        selected = com
-
     }
-
 
     fun onClick(){
         if(selected != 0){
@@ -150,15 +174,10 @@ class ManageViewModel(val database: DataHistoryDatabaseDao, application: Applica
 
 
     //===== Suspend Function =====//
-    private suspend fun clearDB(){
-        withContext(Dispatchers.IO){
-            database.clear()
-        }
-    }
 
-    private suspend fun getAllDB(){
+    private suspend fun updateDB(data: DataHistory){
         withContext(Dispatchers.IO){
-            database.getHistory()
+            database.update(data)
         }
     }
 

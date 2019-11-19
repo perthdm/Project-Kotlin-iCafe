@@ -35,7 +35,8 @@ class MenuFragment : Fragment() {
         //Click --> Manager Page
         viewModel.eventClickManager.observe(this, Observer<Boolean>{  boolean ->
             if (boolean) {
-                this.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToManageFragment("Menu"))
+//                this.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToManageFragment("Menu"))
+                this.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToManageFragment())
             }
         })
 

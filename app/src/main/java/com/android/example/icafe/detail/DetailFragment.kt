@@ -24,9 +24,7 @@ class DetailFragment : Fragment() {
     private lateinit var viewModel: DetailViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentDetailBinding>(inflater, R.layout.fragment_detail,container,false)
         val args = DetailFragmentArgs.fromBundle(arguments!!)
@@ -75,7 +73,8 @@ class DetailFragment : Fragment() {
             if(boolean){
                 var dataID = viewModel.dataIdHitden.value.toString()
                 Log.i("DetailFragment",dataID)
-                this.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToManageFragment(dataID))
+//                this.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToManageFragment(dataID))
+                this.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToManageFragment())
             }
         })
         ///================ STEP-3 Call --> Clicked Submit  ================///

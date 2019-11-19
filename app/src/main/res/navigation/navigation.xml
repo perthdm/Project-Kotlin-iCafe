@@ -44,9 +44,6 @@
         <action
             android:id="@+id/action_manageFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-        <argument
-            android:name="dataID"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

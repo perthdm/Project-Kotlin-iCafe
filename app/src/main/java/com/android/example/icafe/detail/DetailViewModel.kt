@@ -11,8 +11,7 @@ import com.android.example.icafe.database.*
 import kotlinx.coroutines.*
 import java.time.LocalTime
 
-class DetailViewModel(val database: DataHistoryDatabaseDao,
-                      application: Application) : AndroidViewModel(application) {
+class DetailViewModel(val database: DataHistoryDatabaseDao, application: Application) : AndroidViewModel(application) {
 
 
     //==== Database ====//
