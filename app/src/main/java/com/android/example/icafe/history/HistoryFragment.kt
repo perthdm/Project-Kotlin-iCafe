@@ -51,32 +51,14 @@ class HistoryFragment : Fragment() {
     ///================ Right Menu for share ================///
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.menu_for_history, menu)
+        inflater.inflate(R.menu.menu_for_history, menu)
 
-        if(null == getShareIntent().resolveActivity(activity!!.packageManager)){
-            menu?.findItem(R.id.share)?.setVisible(false)
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item!!.itemId){
-            R.id.share -> shareSuccess()
-        }
-
-        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController()) || super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item, view!!.findNavController()) || super.onOptionsItemSelected(item)
     }
     ///================ Right Menu for share ================///
 
 
-    private fun getShareIntent() : Intent {
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        //val args = AboutFragmentArgs.fromBundle(arguments!!)
-
-        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, "Shared")
-        return shareIntent
-    }
-
-    private fun shareSuccess(){
-        startActivity(getShareIntent())
-    }
 }

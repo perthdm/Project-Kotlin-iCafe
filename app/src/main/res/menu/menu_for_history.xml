@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/aboutFragment"
-        android:title="ABOUT"/>
+        android:id="@+id/menuFragment"
+        android:title="MENU"/>
 
-    <item
-        android:id="@+id/manageFragment"
-        android:title="MANAGER"/>
+<!--    <item-->
+<!--        android:id="@+id/manageFragment"-->
+<!--        android:title="MANAGER"/>-->
 
     <item
         android:id="@+id/loginFragment"

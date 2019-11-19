@@ -22,6 +22,13 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(binding.navView, navController)
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            if(destination.id  ==  R.id.loginFragment){
+//                supportActionBar?.hide()
+//            }else{
+//                supportActionBar?.show()
+//            }
+//        }
     }
 
     override fun onBackPressed() {
