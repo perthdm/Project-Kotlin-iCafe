@@ -29,13 +29,15 @@ class HistoryFragment : Fragment() {
         //=====  Database =====//
 
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(HistoryViewModel::class.java)
+
+        // ReV //
         val adapter = HistoryAdapter()
         binding.historyRecycle.adapter = adapter
+        // ReV //
+
         binding.historyViewModel = viewModel
         binding.lifecycleOwner = this
-
-        binding.setLifecycleOwner(this)
-
+//        binding.setLifecycleOwner(this)
 
 
         viewModel.score.observe(viewLifecycleOwner, Observer {
